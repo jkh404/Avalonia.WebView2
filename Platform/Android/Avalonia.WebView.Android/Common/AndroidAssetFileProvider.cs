@@ -4,7 +4,6 @@ namespace Avalonia.WebView.Android.Common;
 
 internal class AndroidAssetFileProvider : IFileProvider
 {
-    public static global::Android.Content.Res.AssetManager? Asset=null;
     public AndroidAssetFileProvider(Assembly? assembly, string contentRootDir)
     {
         var assets = AndroidApplication.Context.Assets;
@@ -99,8 +98,8 @@ internal class AndroidAssetFileProvider : IFileProvider
 
         public Stream CreateReadStream()
         {
-            if (Asset==null) throw new Exception("Asset is null");
-            return Asset.Open(_filePath);
+            //if (Asset==null) throw new Exception("Asset is null");
+            return _assetManager.Open(_filePath);
 
             //return AssetLoader.Open(new Uri("avares://TestApp.Droid/Assets/"+_filePath));
         }
