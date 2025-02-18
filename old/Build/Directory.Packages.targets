@@ -1,0 +1,38 @@
+﻿<Project>
+	<PropertyGroup>
+		<!--Package-->
+		<PackageId Condition="'$(PackageId)' == ''">$(MSBuildProjectName).Cross</PackageId>
+		<Title  Condition="'$(Title)' == ''">$(MSBuildProjectName).Cross</Title>
+		<WebviewVersion>11.2.3.0</WebviewVersion>
+		<WebViewPackageOutputPath>$(RepositoryDirectory)_nuget\</WebViewPackageOutputPath>
+		<VersionPrefix>avalonia11.2.3</VersionPrefix>
+		<Authors>MicroSugarDeveloperOrg|Sakib</Authors>
+		<Company>MicroSugarDeveloperOrg|Sakib</Company>
+		<Description>This repository is a set of controls that will help you add webview control.</Description>
+		<PackageTags>webview for avaloniaui</PackageTags>
+		<RepositoryUrl>https://github.com/sakib1361/Avalonia.WebView2</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/sakib1361/Avalonia.WebView2</PackageProjectUrl>
+		<RepositoryType>git</RepositoryType>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageIcon>webview@avalonia-logo.png</PackageIcon>
+		<Version>$(WebviewVersion)</Version>
+		<PackageOutputPath>$(WebViewPackageOutputPath)</PackageOutputPath>
+	</PropertyGroup>
+
+	<!--<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\Packages\webview@avalonia-logo.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>-->
+</Project>
