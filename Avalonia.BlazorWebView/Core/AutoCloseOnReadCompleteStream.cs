@@ -25,15 +25,24 @@
         {
             if (_baseStream.CanRead)
             {
-                var bytesRead = _baseStream.Read(buffer, offset, count);
+                try
+                {
+                    var bytesRead = _baseStream.Read(buffer, offset, count);
 
-                // Stream.Read only returns 0 when it has reached the end of stream
-                // and no further bytes are expected. Otherwise it blocks until
-                // one or more (and at most count) bytes can be read.
-                if (bytesRead == 0)
-                    _baseStream.Close();
+                    // Stream.Read only returns 0 when it has reached the end of stream
+                    // and no further bytes are expected. Otherwise it blocks until
+                    // one or more (and at most count) bytes can be read.
+                    if (bytesRead == 0)
+                        _baseStream.Close();
 
-                return bytesRead;
+                    return bytesRead;
+                }
+                catch (Exception)
+                {
+
+                    return 0;
+                }
+
             }
             else
             {

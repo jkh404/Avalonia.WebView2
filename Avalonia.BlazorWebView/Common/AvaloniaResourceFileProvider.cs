@@ -48,6 +48,7 @@ namespace AvaloniaBlazorWebView.Common
 
 
         }
+        
 
         /// <summary>
         /// 

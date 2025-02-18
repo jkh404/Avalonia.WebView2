@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Avalonia.BlazorWebView\Avalonia.BlazorWebView.csproj" />
-    <ProjectReference Include="..\..\TestApp.Web\TestApp.Web.csproj" />
+    <ProjectReference Include="..\TestApp.Web.Shared\TestApp.Web.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

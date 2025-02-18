@@ -8,6 +8,7 @@ using TestApp.ViewModels;
 using TestApp.Views;
 //using AvaloniaBlazorWebView;
 using AvaloniaBlazorWebView;
+using MudBlazor.Services;
 
 namespace TestApp;
 
@@ -56,7 +57,7 @@ public partial class App : Application
         }, inject =>
         {
             //you can inject the resource in this
-
+            inject.AddMudServices();
         });
     }
     private void DisableAvaloniaDataAnnotationValidation()

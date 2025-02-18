@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <Nullable>enable</Nullable>
+    <ApplicationId>com.CompanyName.TestApp</ApplicationId>
+    <ApplicationVersion>1</ApplicationVersion>
+    <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+	  <StaticWebAssetsEnabled>false</StaticWebAssetsEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AndroidAsset Include="wwwroot\*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\dragdrop.webview2.polyfill.js" />
+    <Content Remove="wwwroot\index.html" />
+    <Content Remove="wwwroot\MudBlazor.min.css" />
+    <Content Remove="wwwroot\MudBlazor.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidAsset Include="wwwroot\_content\MudBlazor\MudBlazor.min.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="wwwroot\_content\MudBlazor\MudBlazor.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidResource Include="Icon.png">
+      <Link>Resources\drawable\Icon.png</Link>
+    </AndroidResource>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Android" Version="11.2.4" />
+    <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Platform\Android\Avalonia.WebView.Android\Avalonia.WebView.Android.csproj" />
+    <ProjectReference Include="..\TestApp\TestApp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AndroidAsset Update="wwwroot\dragdrop.webview2.polyfill.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Update="wwwroot\index.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+  </ItemGroup>
+
+</Project>

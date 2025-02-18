@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components" Version="9.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+		<PackageReference Include="MudBlazor" Version="8.*" />
+	</ItemGroup>
+</Project>

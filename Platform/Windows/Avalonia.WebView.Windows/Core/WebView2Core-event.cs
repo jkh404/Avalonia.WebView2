@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Avalonia.Controls;
 using Microsoft.Web.WebView2.Core;
@@ -87,7 +88,7 @@ partial class WebView2Core
     {
         if (_coreWebView2Controller is null)
             return;
-
+        
         double scale = 1;
         var topLevel = TopLevel.GetTopLevel(_handler);
         if (topLevel is not null)

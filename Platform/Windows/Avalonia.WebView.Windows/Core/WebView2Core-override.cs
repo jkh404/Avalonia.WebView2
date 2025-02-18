@@ -21,8 +21,8 @@ partial class WebView2Core
     bool IWebViewControl.IsCanGoForward => CoreWebView2?.CanGoForward ?? false;
 
     bool IWebViewControl.IsCanGoBack => CoreWebView2?.CanGoBack ?? false;
-    //[UnsafeAccessor(UnsafeAccessorKind.Method,Name = "get_IsBrowserHitTransparent")]
-    //static extern bool GetIsBrowserHitTransparent(CoreWebView2Controller coreWebView2Controller);
+    [UnsafeAccessor(UnsafeAccessorKind.Method,Name = "get_IsBrowserHitTransparent")]
+    static extern bool GetIsBrowserHitTransparent(CoreWebView2Controller coreWebView2Controller);
     async Task<bool> IPlatformWebView.Initialize()
     {
         if (IsInitialized)
@@ -58,7 +58,8 @@ partial class WebView2Core
             try
             {
                 var type = _coreWebView2Controller.GetType();
-                var isBrowserHitTransparent = (bool?)type.GetProperty("IsBrowserHitTransparent",(BindingFlags)16777215)?.GetValue(_coreWebView2Controller);
+                //bool? isBrowserHitTransparent = (bool?)type.GetProperty("IsBrowserHitTransparent",(BindingFlags)16777215)?.GetValue(_coreWebView2Controller);
+                bool? isBrowserHitTransparent = GetIsBrowserHitTransparent(_coreWebView2Controller);
                 //_browserHitTransparent = GetIsBrowserHitTransparent(_coreWebView2Controller);//_coreWebView2Controller.IsBrowserHitTransparent;
                 _browserHitTransparent =isBrowserHitTransparent??false; 
             }
