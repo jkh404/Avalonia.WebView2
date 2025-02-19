@@ -1,7 +1,5 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using TestApp.Web.Shared;
-
 namespace TestApp.Views;
 
 public partial class MainView : UserControl
@@ -20,7 +18,7 @@ public partial class MainView : UserControl
 
     private void BlazorWebView_WebViewNewWindowRequested(object? sender, WebView.Core.Events.WebViewNewWindowEventArgs e)
     {
-        e.UrlLoadingStrategy=WebView.Core.Enums.UrlRequestStrategy.OpenInWebView;
+        e.UrlLoadingStrategy=WebView.Core.Enums.UrlRequestStrategy.OpenInNewWindow;
     }
 
     protected override void OnLoaded(RoutedEventArgs e)

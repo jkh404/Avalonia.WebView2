@@ -29,10 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\dragdrop.webview2.polyfill.js">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\index.html">
+    <Content Update="wwwroot\**">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

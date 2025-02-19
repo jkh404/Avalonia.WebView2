@@ -6,6 +6,18 @@
 	  <Nullable>enable</Nullable>
 	  <LangVersion>10.0</LangVersion>
 	  <RootNamespace>AvaloniaBlazorWebView</RootNamespace>
+	  <!-- NuGet 包元数据 -->
+	  <PackageId>Sky.Avalonia.BlazorWebView</PackageId>
+	  <Version>1.0.0</Version>
+	  <Authors>Skyqwe</Authors>
+	  <Description>Avalonia Blazor WebView</Description>
+	  <PackageTags>Avalonia;Blazor;WebView</PackageTags>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RepositoryUrl>https://github.com/jkh404/Avalonia.WebView2</RepositoryUrl>
+	  <RepositoryType>git</RepositoryType>
+	  <PackageProjectUrl>https://github.com/jkh404/Avalonia.WebView2</PackageProjectUrl>
+	  
+	  <PackageReleaseNotes>Initial release of the package.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,28 +1,29 @@
 # Sky.Avalonia.WebView2 
 [English](README.md)|[中文](README_ZH_CN.md)
-A WebView2 control for Avalonia that supports Blazor. This project is forked from [https://github.com/sakib1361/Avalonia.WebView2](https://github.com/sakib1361/Avalonia.WebView2) and has been modified.
-## Instructions
-## Installation
-For example, if your Avalonia project is named `TestApp` and uses a multi-project structure:
-### 1. Install NuGet Packages
-1. In `TestApp` install
+适用于avalonia的WebView2控件，支持Blazor。
+项目从https://github.com/sakib1361/Avalonia.WebView2 分叉而来，并进行了修改。
+## 使用说明
+## 安装
+例如你的Avalonia 项目名`TestApp`，使用的多项目结构
+### 1. 安装 NuGet 包
+1.在`TestApp`中安装
 BlazorWebView
 ```
 dotnet add package Sky.Avalonia.BlazorWebView
 ```
-or WebView:
+或WebView
 ```
 dotnet add package Sky.Avalonia.WebView
 ```
-2.In`TestApp.Desktop`install
+2.在`TestApp.Desktop`中安装
 ```
 dotnet add package Sky.Avalonia.WebView.Desktop
 ```
-or in `TestApp.Android`install
+或在`TestApp.Android`中安装
 ```
 dotnet add package Sky.Avalonia.WebView.Android
 ```
-3.Edit the file:`App.axaml.cs`
+3.编辑文件：`App.axaml.cs`
 ```
  using AvaloniaWebView;
 
@@ -53,15 +54,24 @@ dotnet add package Sky.Avalonia.WebView.Android
      });
   }
 ```
-4.Edit the file:`MainView.axaml` 
+4.编辑文件：`MainView.axaml` 
 
 ```
-<UserControl ...>
-...
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:TestApp.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="TestApp.Views.MainView"
+             x:DataType="vm:MainViewModel">
+  <Design.DataContext>
+    <vm:MainViewModel />
+  </Design.DataContext>
 	<BlazorWebView x:Name="blazorWebView"/>
 </UserControl>
 ```
-5.Edit the file:`MainView.axaml.cs` 
+5.编辑文件：`MainView.axaml.cs` 
 
 ```
 using Avalonia.Controls;
@@ -84,14 +94,14 @@ public partial class MainView : UserControl
 
     private void BlazorWebView_WebViewNewWindowRequested(object? sender, WebView.Core.Events.WebViewNewWindowEventArgs e)
     {
-        e.UrlLoadingStrategy=WebView.Core.Enums.UrlRequestStrategy.OpenInNewWindow;//Open links in a new window
+        e.UrlLoadingStrategy=WebView.Core.Enums.UrlRequestStrategy.OpenInNewWindow;//在新窗口中打开链接
     }
 
    ......
 }
 ```
-6.Edit the `Program.cs` file for Desktop projects or the `MainActivity.cs` file for Android projects
-Desktop：
+6.编辑Desktop项目的`Program.cs` 或Android项目的`MainActivity.cs`
+Desktop项目：
 ```
 public static AppBuilder BuildAvaloniaApp()
     => AppBuilder.Configure<App>()
@@ -100,7 +110,7 @@ public static AppBuilder BuildAvaloniaApp()
         .LogToTrace()
         .UseWindowWebView();//add this line
 ```
-Android：
+Android项目：
 ```
 protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
 {
@@ -110,9 +120,9 @@ protected override AppBuilder CustomizeAppBuilder(AppBuilder builder)
         .UseAndroidWebView();//add this line
 }
 ```
-## Notes
-When running Blazor, change `<Project Sdk="Microsoft.NET.Sdk">` to `<Project Sdk="Microsoft.NET.Sdk.Razor">` in the following projects: `TestApp`, `TestApp.Desktop`, and `TestApp.Android`.
-1.File: `TestApp.csproj` - Modify or add:
+## 注意事项
+运行Blazor时，`TestApp` `TestApp.Desktop` `TestApp.Android` `<Project Sdk="Microsoft.NET.Sdk">` 必须改为 `<Project Sdk="Microsoft.NET.Sdk.Razor">`
+1.文件：`TestApp.csproj` 修改或增加
 ```
 ...
 <ItemGroup>
@@ -122,7 +132,7 @@ When running Blazor, change `<Project Sdk="Microsoft.NET.Sdk">` to `<Project Sdk
 </ItemGroup>
 ...
 ```
-2.File: `TestApp.Android.csproj` - Modify or add:
+2.文件：`TestApp.Android.csproj` 修改或增加
 
 ```
 <PropertyGroup>
@@ -137,11 +147,12 @@ When running Blazor, change `<Project Sdk="Microsoft.NET.Sdk">` to `<Project Sdk
 </ItemGroup>
 ...
 ```
-3. Copy the files from the `wwwroot` folder in `TestApp` to the `wwwroot` folder in `TestApp.Android`.
-4. If using Blazor UI libraries, such as MudBlazor, please copy the files from `_content/MudBlazor/*` to the `wwwroot` folder in `TestApp.Android` as-is.
-## Sample Project
+3.将TestApp下的wwwroot文件夹下的文件复制一份到TestApp.Android的wwwroot文件夹下。
+4.如果使用Blazor UI，例如MudBlazor，请将_content/MudBlazor/* 文件原样复制到TestApp.Android的wwwroot文件夹下。
+
+## 参考项目
 https://github.com/jkh404/Avalonia.WebView2/tree/master/TestApp
-## Screenshot Images
+## 展示图片
 
 ![android](android.png)
 ![desktop](desktop.png)
