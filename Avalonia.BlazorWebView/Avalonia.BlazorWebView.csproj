@@ -16,8 +16,8 @@
 	  <RepositoryUrl>https://github.com/jkh404/Avalonia.WebView2</RepositoryUrl>
 	  <RepositoryType>git</RepositoryType>
 	  <PackageProjectUrl>https://github.com/jkh404/Avalonia.WebView2</PackageProjectUrl>
-	  
-	  <PackageReleaseNotes>Initial release of the package.</PackageReleaseNotes>
+	  <PackageReleaseNotes>A WebView2 control for Avalonia that supports Blazor.</PackageReleaseNotes>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,5 +27,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Avalonia.WebView.Shared\Avalonia.WebView.Shared.csproj" />
   </ItemGroup>
+	<ItemGroup>
+		<None Include="../README.md" pack="true"  PackagePath="." />
+		<None Include="../README_ZH_CN.md" pack="true"  PackagePath="." />
+	</ItemGroup>
 
 </Project>
